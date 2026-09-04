@@ -114,8 +114,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 from bson import ObjectId
 
+# from database import leads_collection
+# from backend.src.schemas import LeadCreate
+
+# USE THIS:
+from schemas import LeadCreate
 from database import leads_collection
-from backend.src.schemas import LeadCreate
 
 app = FastAPI(title="SnapServe Lead Connect API")
 
