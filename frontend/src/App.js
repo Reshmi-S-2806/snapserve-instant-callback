@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://snapserve-instant-callback.onrender.com";
 function App() {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,7 +22,7 @@ function App() {
     setStatusMessage('Initiating call...');
 
     try {
-      const response = await axios.post('http://localhost:8000/api/leads', formData);
+      const response = await axios.post('${API_BASE_URL}/api/leads', formData);
       setStatusMessage(`Success! Call initiated (Call ID: ${response.data.call_id})`);
       setFormData({ name: '', phone_number: '', email: '', service_interest: 'General Inquiry' });
     } catch (error) {
