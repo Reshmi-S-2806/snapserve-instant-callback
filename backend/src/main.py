@@ -131,6 +131,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def health_check():
+    return {"status": "ok", "message": "SnapServe Lead Connect API is live"}
+
+
 SNAPSERVE_API_KEY = os.getenv("SNAPSERVE_API_KEY")
 SNAPSERVE_API_URL = os.getenv("SNAPSERVE_API_URL")
 
