@@ -22,7 +22,7 @@ function App() {
     setStatusMessage('Initiating call...');
 
     try {
-      const response = await axios.post('${API_BASE_URL}/api/leads', formData);
+      const response = await axios.post(`${API_BASE_URL}/api/leads`, formData);
       setStatusMessage(`Success! Call initiated (Call ID: ${response.data.call_id})`);
       setFormData({ name: '', phone_number: '', email: '', service_interest: 'General Inquiry' });
     } catch (error) {
